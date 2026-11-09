@@ -1,9 +1,11 @@
+
 package tn.esprit.autoloc.autolocapi.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -51,5 +53,5 @@ public class Vehicule {
             joinColumns = @JoinColumn(name = "vehicule_id"),
             inverseJoinColumns = @JoinColumn(name = "equipement_id")
     )
-    private List<equipement> equipements;
+    private List<equipement> equipements = new ArrayList<>();
 }

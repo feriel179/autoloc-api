@@ -1,3 +1,4 @@
+
 package tn.esprit.autoloc.autolocapi.domain;
 
 import jakarta.persistence.*;
@@ -25,6 +26,6 @@ public class employe {
     private roleemploye role;
 
     @ManyToOne
-    @JoinColumn(name = "agence_id")
+    @JoinColumn(name = "agence_id", nullable = true)
     private agence agence;
 }

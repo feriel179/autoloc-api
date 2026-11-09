@@ -16,39 +16,56 @@ public class EmployeController {
 
     private final IEmployeService employeService;
 
-    // Ajouter un employé
+    // 1. Ajouter un employé
     @PostMapping("/addEmploye")
     public employe addEmploye(@RequestBody employe e) {
         return employeService.addEmploye(e);
     }
 
-    // Afficher tous les employés
+    // 2. Afficher tous les employés
     @GetMapping("/retrieveAllEmployes")
     public List<employe> retrieveAllEmployes() {
         return employeService.retrieveAllEmployes();
     }
 
-    // Afficher un employé par ID
+    // 3. Afficher un employé par ID
     @GetMapping("/retrieveEmploye/{idEmploye}")
     public employe retrieveEmploye(@PathVariable Long idEmploye) {
         return employeService.retrieveEmploye(idEmploye);
     }
 
-    // Modifier un employé
+    // 4. Modifier un employé
     @PutMapping("/updateEmploye")
     public employe updateEmploye(@RequestBody employe e) {
         return employeService.updateEmploye(e);
     }
 
-    // Supprimer un employé
+    // 5. Supprimer un employé
     @DeleteMapping("/deleteEmploye/{idEmploye}")
     public void deleteEmploye(@PathVariable Long idEmploye) {
         employeService.removeEmploye(idEmploye);
     }
 
-    // Ajouter plusieurs employés
+    // 6. Ajouter plusieurs employés
     @PostMapping("/addEmployes")
     public List<employe> addEmployes(@RequestBody List<employe> employes) {
         return employeService.addEmployes(employes);
+    }
+
+    // 7. Désaffecter un employé de son agence
+    @PutMapping("/desaffecterEmploye/{idEmploye}")
+    public employe desaffecterEmploye(
+            @PathVariable Long idEmploye) {
+
+        return employeService.desaffecterEmploye(idEmploye);
+    }
+
+    // 8. Affecter un employé à une agence
+    @PutMapping("/affecterEmploye/{idEmploye}/{idAgence}")
+    public employe affecterEmploye(
+            @PathVariable Long idEmploye,
+            @PathVariable Long idAgence) {
+
+        return employeService.affecterEmploye(idEmploye, idAgence);
     }
 }

@@ -1,3 +1,4 @@
+
 package tn.esprit.autoloc.autolocapi.service;
 
 import tn.esprit.autoloc.autolocapi.domain.employe;
@@ -16,4 +17,10 @@ public interface IEmployeService {
     void removeEmploye(Long idEmploye);
 
     List<employe> addEmployes(List<employe> employes);
+
+    // Désaffecter un employé de son agence
+    employe desaffecterEmploye(Long idEmploye);
+
+    // Affecter un employé à une agence
+    employe affecterEmploye(Long idEmploye, Long idAgence);
 }

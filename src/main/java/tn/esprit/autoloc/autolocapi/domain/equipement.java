@@ -1,8 +1,11 @@
+
 package tn.esprit.autoloc.autolocapi.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,6 +23,7 @@ public class equipement {
     @Column(nullable = false, length = 100)
     private String libelle;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "equipements")
-    private List<Vehicule> vehicules;
+    private List<Vehicule> vehicules = new ArrayList<>();
 }
